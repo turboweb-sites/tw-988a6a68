@@ -165,8 +165,8 @@ export default function App() {
                 key={index}
                 className={`absolute rounded-md transition-all duration-100 ${
                   index === 0
-                    ? 'bg-gradient-to-br from-cyan-400 to-blue-500 shadow-lg shadow-cyan-500/50'
-                    : 'bg-gradient-to-br from-cyan-500 to-blue-600'
+                    ? 'bg-gradient-to-br from-red-400 to-red-500 shadow-lg shadow-red-500/50'
+                    : 'bg-gradient-to-br from-red-500 to-red-600'
                 }`}
                 style={{
                   left: segment.x * CELL_SIZE + 2,
