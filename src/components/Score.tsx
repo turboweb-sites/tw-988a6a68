@@ -1,31 +1,16 @@
-import { Trophy, Star } from 'lucide-react';
+import { Award } from 'lucide-react';
 
 interface ScoreProps {
   score: number;
-  highScore: number;
 }
 
-export default function Score({ score, highScore }: ScoreProps) {
+export default function Score({ score }: ScoreProps) {
   return (
-    <div className="score-container">
-      <div className="score-card">
-        <div className="flex items-center gap-2 mb-1">
-          <Star className="w-5 h-5 text-yellow-400" />
-          <span className="text-sm text-gray-300 font-medium">Счёт</span>
-        </div>
-        <div className="text-4xl font-bold text-white">
-          {score}
-        </div>
-      </div>
-
-      <div className="score-card">
-        <div className="flex items-center gap-2 mb-1">
-          <Trophy className="w-5 h-5 text-amber-400" />
-          <span className="text-sm text-gray-300 font-medium">Рекорд</span>
-        </div>
-        <div className="text-4xl font-bold text-amber-400">
-          {highScore}
-        </div>
+    <div className="flex items-center justify-center gap-3 bg-white/10 rounded-xl px-6 py-4 border border-white/20">
+      <Award className="w-6 h-6 text-yellow-300" />
+      <div>
+        <div className="text-sm text-purple-200 font-medium">Счёт</div>
+        <div className="text-3xl font-bold text-white tabular-nums">{score}</div>
       </div>
     </div>
   );
