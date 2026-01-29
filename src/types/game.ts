@@ -5,4 +5,4 @@ export interface Position {
 
 export type Direction = 'UP' | 'DOWN' | 'LEFT' | 'RIGHT';
 
-export type GameState = 'ready' | 'playing' | 'paused' | 'gameOver';
+export type GameState = 'idle' | 'playing' | 'paused' | 'gameOver';

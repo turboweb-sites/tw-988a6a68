@@ -1,83 +1,45 @@
-/* Game Container */
-.game-container {
-  @apply w-full max-w-2xl mx-auto;
+/* Game animations */
+@keyframes pulse-glow {
+  0%, 100% {
+    box-shadow: 0 0 20px rgba(239, 68, 68, 0.5);
+  }
+  50% {
+    box-shadow: 0 0 30px rgba(239, 68, 68, 0.8);
+  }
 }
 
-/* Score Container */
-.score-container {
-  @apply grid grid-cols-2 gap-4 mb-6;
+/* Smooth transitions for all game elements */
+* {
+  -webkit-tap-highlight-color: transparent;
 }
 
-.score-card {
-  @apply bg-gradient-to-br from-white/10 to-white/5 backdrop-blur-lg rounded-xl p-6 border border-white/20;
-  @apply transition-all duration-300 hover:scale-105 hover:border-white/30;
-}
-
-/* Game Board */
+/* Prevent text selection during gameplay */
 .game-board {
-  @apply relative w-full aspect-square bg-gradient-to-br from-gray-900 to-gray-800 rounded-2xl overflow-hidden;
-  @apply border-4 border-white/20 shadow-2xl;
-  position: relative;
+  user-select: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
 }
 
-/* Snake */
-.snake-segment {
-  @apply absolute rounded-sm transition-all duration-75;
-  background: linear-gradient(135deg, #10b981 0%, #059669 100%);
-  box-shadow: 0 0 10px rgba(16, 185, 129, 0.5);
+/* Custom scrollbar for webkit browsers */
+::-webkit-scrollbar {
+  width: 8px;
 }
 
-.snake-segment::after {
-  content: '';
-  @apply absolute inset-0.5 rounded-sm;
-  background: linear-gradient(135deg, #34d399 0%, #10b981 100%);
+::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.05);
 }
 
-/* Food */
-.food {
-  @apply absolute transition-all duration-300;
-  animation: pulse-food 1s ease-in-out infinite;
+::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 4px;
 }
 
-@keyframes pulse-food {
-  0%, 100% {
-    transform: scale(1);
-  }
-  50% {
-    transform: scale(1.1);
-  }
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.3);
 }
 
-/* Responsive Grid */
-@media (max-width: 640px) {
-  .game-board {
-    @apply border-2;
-  }
-  
-  .score-card {
-    @apply p-4;
-  }
-}
-
-/* Animation for new record */
-@keyframes bounce {
-  0%, 100% {
-    transform: translateY(0);
-  }
-  50% {
-    transform: translateY(-20px);
-  }
-}
-
-.animate-bounce {
-  animation: bounce 1s ease-in-out infinite;
-}
-
-/* Grid lines */
-.grid-cols-20 {
-  grid-template-columns: repeat(20, minmax(0, 1fr));
-}
-
-.grid-rows-20 {
-  grid-template-rows: repeat(20, minmax(0, 1fr));
+/* Disable arrow key scrolling */
+body {
+  overflow: hidden;
 }
